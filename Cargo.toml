@@ -1,0 +1,19 @@
+[package]
+name = "nokhwa-java"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+jni = "0.21.1"
+
+[dependencies.nokhwa]
+version = "0.10.4"
+# Use the native input backends
+features = ["input-native"]
+
+[patch.crates-io]
+# patch nokhwa core until https://github.com/l1npengtul/nokhwa/pull/178 is merged and released
+nokhwa-core = { git = "https://github.com/l1npengtul/nokhwa.git", rev = "74a98ace10368320cfcc2186118ae10d5308ca59"}
+
+[lib]
+crate-type = ["cdylib"]
